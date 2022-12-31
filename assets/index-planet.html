@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>PMTiles MapLibre Example</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" crossorigin="anonymous">
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js" crossorigin="anonymous"></script>
+    <script src="./pmtiles/index.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        #map {
+            height:100%; width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script type="text/javascript">
+    let protocol = new pmtiles.Protocol();
+    maplibregl.addProtocol("pmtiles",protocol.tile);
+    const PMTILES_URL = "http://0.0.0.0:9000/comtiles/planet.pmtiles?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=9NONIG5LB53I8RYCI5WC%2F20221229%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221229T230748Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiI5Tk9OSUc1TEI1M0k4UllDSTVXQyIsImV4cCI6MTY3MjM1ODg2MywicGFyZW50IjoibWluaW9hZG1pbiJ9.VdMe_k7QfN_m6rrlVox3kOnc636b-Mz_4kPQo_SL4GLGD7xwDfv9PgGCE1UFTRt4duo3DNOLUEv0yGiii4riFw&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=e184bd8eca3d21b1438c154fe77a2ca7e53ea2d083e07ca89d8657fbde8876ea";
+    const p = new pmtiles.PMTiles(PMTILES_URL);
+    protocol.add(p);
+
+    p.getHeader().then(h => {
+        const map = new maplibregl.Map({
+            container: 'map',
+            zoom: 8,
+            center: [11.596765649081279, 48.14664347623256],
+            //zoom: 6,
+            // center: [8.745481287236137, 50.118716189520626],
+            style: "http://127.0.0.1:8080/assets/pmtiles/style-planet.json"
+        });
+        map.showTileBoundaries = true;
+    })
+</script>
+</body>
+</html>
