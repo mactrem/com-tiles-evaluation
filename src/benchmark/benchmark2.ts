@@ -1,5 +1,5 @@
 import * as fs from "fs";
-const PMTiles = require("../pmtiles");
+import {decodeDirectory} from "../pmtiles";
 import { fileNames } from "./testData";
 import { decodeBitAlignedFragment } from "../comtiles/fragmentDecoder";
 
@@ -16,7 +16,7 @@ import { decodeBitAlignedFragment } from "../comtiles/fragmentDecoder";
         let absolutePMTilesTime = 0;
         for (let i = 0; i < numDirectoryFetches; i++) {
             const startTime = performance.now();
-            const directory = await PMTiles.decompressDirectory(pmTilesDirectory);
+            const directory = await decodeDirectory(pmTilesDirectory);
             const endTime = performance.now() - startTime;
             absolutePMTilesTime += endTime;
         }

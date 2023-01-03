@@ -4,10 +4,10 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "http://127.0.0.1:8080/assets/pmtiles/tiles-planet.json"
+      "url": "http://127.0.0.1:8080/pmtiles/tiles-planet.json"
     }
   },
-  "glyphs": "http://127.0.0.1:8080/assets/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "http://127.0.0.1:8080/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",

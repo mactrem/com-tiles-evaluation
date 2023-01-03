@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import Benchmark from "benchmark";
-const PMTiles = require("../pmtiles");
+import {decodeDirectorySync} from "../pmtiles";
 import { fileNames } from "./testData";
 import {
     decodeBitAlignedFragment,
@@ -25,7 +25,8 @@ new Benchmark.Suite()
         const [absoluteOffset, relativeOffsets] = decodeBitAlignedFragmentBranchless(comTilesSmallFragment);
     })
     .add("PMTiles large directory decoding", () => {
-        const directory = PMTiles.decompressDirectorySync(pmTilesDirectory);
+
+        const directory = decodeDirectorySync(pmTilesDirectory);
     })
     /*.add(
         "PMTiles large directory sync decoding",

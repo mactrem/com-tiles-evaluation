@@ -28,7 +28,7 @@ export function decodeByteAlignedFragment(
     let byteCounter = absoluteOffsetByteWidth;
     let previousRelativeOffset = 0;
     for (let i = 0; i < numIndexEntriesPerFragment; i++) {
-        let tileSize =
+        const tileSize =
             encodedFragment[byteCounter++] |
             (encodedFragment[byteCounter++] << 8) |
             (encodedFragment[byteCounter++] << 16);
@@ -51,7 +51,7 @@ export function decodeBitAlignedFragment(
     let previousRelativeOffset = 0;
     let partialStartByte = false;
     for (let i = 0; i < numIndexEntriesPerFragment; i++) {
-        let tileSize = partialStartByte
+        const tileSize = partialStartByte
             ? ((encodedFragment[byteCounter++] >> 4) & 0xf) |
               (encodedFragment[byteCounter++] << 4) |
               (encodedFragment[byteCounter++] << 12)
@@ -78,7 +78,7 @@ export function decodeBitAlignedFragmentBranchless(
     let previousRelativeOffset = 0;
     let partialStartByte = false;
     for (let i = 0; i < numIndexEntriesPerFragment; i++) {
-        let tileSize =
+        const tileSize =
             ((encodedFragment[byteCounter++] >> firstByteLookupTable[i]) & 0xf) |
             (encodedFragment[byteCounter++] << secondByteLookupTable[i]) |
             ((encodedFragment[byteCounter] & 0xf) << thirdByteLookupTable[i]);
@@ -102,7 +102,7 @@ export function decodeBitAlignedFragmentArrayBased(
     let previousRelativeOffset = 0;
     let partialStartByte = false;
     for (let i = 0; i < numIndexEntriesPerFragment; i++) {
-        let tileSize = partialStartByte
+        const tileSize = partialStartByte
             ? ((encodedFragment[byteCounter++] >> 4) & 0xf) |
               (encodedFragment[byteCounter++] << 4) |
               (encodedFragment[byteCounter++] << 12)
