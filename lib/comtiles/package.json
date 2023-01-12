@@ -1,0 +1,6 @@
+{
+  "name": "com-tiles",
+  "workspaces": [
+    "./packages/*"
+  ]
+}

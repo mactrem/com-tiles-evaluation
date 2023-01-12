@@ -19,7 +19,7 @@
 <script type="text/javascript">
     let protocol = new pmtiles.Protocol();
     maplibregl.addProtocol("pmtiles",protocol.tile);
-    const PMTILES_URL = "http://0.0.0.0:9000/comtiles/planet.pmtiles?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=OKLD0VI9B2G8SS3JR0TC%2F20221231%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221231T182142Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJPS0xEMFZJOUIyRzhTUzNKUjBUQyIsImV4cCI6MTY3MjUxNDQzNywicGFyZW50IjoibWluaW9hZG1pbiJ9.ylSKhKdLYMfq8CIZRTwMKu5_Ys1NQhzLcNwgmH41vzO4WrIxDvduOf74rGshwQXSYyyJAf3QY5Df-g8ujGhEnQ&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=ae467c0f45a8647ea827fc372c47880e7095dd65cf1b2180f45c052d37979ac8";
+    const PMTILES_URL = "";
     const p = new pmtiles.PMTiles(PMTILES_URL);
     protocol.add(p);
 
