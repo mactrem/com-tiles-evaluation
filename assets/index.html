@@ -20,7 +20,7 @@
     let protocol = new pmtiles.Protocol();
     maplibregl.addProtocol("pmtiles",protocol.tile);
 
-    const PMTILES_URL = "http://0.0.0.0:9000/comtiles/germany.pmtiles?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=NSIXKH45FNSMY8B90IJY%2F20221229%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221229T222231Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJOU0lYS0g0NUZOU01ZOEI5MElKWSIsImV4cCI6MTY3MjM1NDc4MSwicGFyZW50IjoibWluaW9hZG1pbiJ9.qASOG1lpbf8jm3_pJALyvpPbVK3qyE0mQqAiy6Bgktu5rat2BR6DbN1WXbBy7QpSKS9W6DR66wCp32iCrcqv3w&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=1181d7e21ac47781efd729b94f33e7bc7b3a02a7a9358e5762d568587335ddbf";
+    const PMTILES_URL = "";
     const p = new pmtiles.PMTiles(PMTILES_URL);
     protocol.add(p);
 

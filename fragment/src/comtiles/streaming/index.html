@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stream Decoding COMTiles fragments</title>
+</head>
+<body>
+
+<script async type="module">
+  const url = "";
+
+  const numFragments = 10;
+  const fragmentSize = 10245;
+  for(let i = 0; i < numFragments; i++){
+    const startOffset = i * fragmentSize;
+    const endOffset = startOffset + fragmentSize - 1;
+
+    const response = await fetch(url, {
+      headers: {
+        "range": `bytes=${startOffset}-${endOffset}`
+      },
+    }).then((response) => response.body);
+
+    const reader = response.getReader();
+
+    while(true){
+      const {value: chunk, done} = await reader.read();
+
+      if(done){
+        break;
+      }
+
+      console.info(chunk.length);
+    }
+  }
+</script>
+
+</body>
+</html>

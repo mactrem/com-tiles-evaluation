@@ -1,0 +1,42 @@
+{
+  "name": "@com-tiles/evaluation",
+  "version": "1.0.0",
+  "description": "Comparing COMTiles with other cloud optimized tile archives like PMTiles",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "serve": "http-server ./assets",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint --max-warnings=0 --fix --ext .ts src",
+    "format": "prettier --write \"**/*.ts\""
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "copyfiles": "^2.4.1",
+    "fflate": "^0.7.4",
+    "hilbert-curve": "^2.0.5",
+    "http-server": "^14.1.1",
+    "lts": "^1.2.0",
+    "pako": "^2.1.0",
+    "pmtiles": "^2.7.0",
+    "sqlite3": "^5.1.4",
+    "varint": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/benchmark": "^2.1.2",
+    "@types/jest": "^29.2.4",
+    "@types/node-fetch": "^2.6.2",
+    "@types/sqlite3": "^3.1.8",
+    "@types/varint": "^6.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.30.0",
+    "fflate": "^0.7.4",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.1",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.9.4"
+  }
+}
